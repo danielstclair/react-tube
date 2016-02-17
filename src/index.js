@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import SearchBar from './components/search_bar';
 
-import App from './components/app';
-import reducers from './reducers';
+const API_KEY = 'YOU_MUST_INSERT_YOUR_YOUTUBE_API_KEY_HERE';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const App = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <h1>Hello World!</h1>
+        <SearchBar />
+      </div>
+    )
+  }
+});
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.container'));
